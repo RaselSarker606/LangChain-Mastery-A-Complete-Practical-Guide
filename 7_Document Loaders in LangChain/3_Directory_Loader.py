@@ -1,0 +1,35 @@
+from langchain_openai import ChatOpenAI
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import PromptTemplate
+from dotenv import load_dotenv
+
+from langchain_community.document_loaders import DirectoryLoader, PyPDFLoader
+
+# Directory_Loader========================
+loader = DirectoryLoader(
+    path = 'books',
+    glob = '*.pdf',
+    loader_cls = PyPDFLoader
+)
+
+docs = loader.load()  # loader.lazy_load()
+
+load_dotenv()
+model = ChatOpenAI()
+parser = StrOutputParser()
+
+prompt = PromptTemplate(
+    template = 'Write a summary for the following - {text}',
+    input_variables = ['text']
+)
+
+chain = prompt | model | parser
+
+result = chain.invoke({'text': docs[10].page_content})
+
+print(result)
+
+# print(type(docs))
+# print(len(docs))
+# print(docs[0].page_content)
+# print(docs[0].metadata)

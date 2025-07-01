@@ -1,0 +1,15 @@
+Alzheimer’s disease (AD) is a leading cause of disability worldwide. Early detection is critical
+for preventing progression and formulating effective treatment plans. This study aims to
+develop a novel deep learning (DL) model, Hybrid-RViT, to enhance the detection of AD.
+The proposed Hybrid-RViT model integrates the pre-trained convolutional neural network
+(ResNet-50) with the Vision Transformer (ViT) to classify brain MRI images across different
+stages of AD. The ResNet-50 adopted for transfer learning, facilitates inductive bias and
+feature extraction. Concurrently, ViT processes sequences of image patches to capture
+long-distance relationships via a self-attention mechanism, thereby functioning as a joint
+local-global feature extractor. The Hybrid-RViT model achieved a training accuracy of 97%
+and a testing accuracy of 95%, outperforming previous models. This demonstrates its
+potential efficacy in accurately identifying and classifying AD stages from brain MRI data.
+The Hybrid-RViT model, combining ResNet-50 and ViT, shows superior performance in AD
+detection, highlighting its potential as a valuable tool for medical professionals in interpreting
+and analyzing brain MRI images. This model could significantly improve early diagnosis and
+intervention strategies for AD.
